@@ -1,0 +1,96 @@
+/* ----------------------------------------------------------------------------- */
+/* This file contains all styles related to the footer of the site/application. */
+/* ----------------------------------------------------------------------------- */
+.footer {
+    padding-top: 70px; /* 替换为 pxToRem(70) 的实际值 */
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.5), /* 替换为 $color-black 的实际 RGBA 值 */
+            rgba(0, 0, 0, 0.5)  /* 替换为 $color-black 的实际 RGBA 值 */
+        ),
+        url('path/to/img/bg/footer-bg-sm.jpg'); /* 替换为实际图片路径 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: auto;
+}
+
+/* For high-resolution displays */
+@media (min-resolution: 192dpi) {
+    .footer {
+        background-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.5), /* 替换为 $color-black 的实际 RGBA 值 */
+                rgba(0, 0, 0, 0.5)  /* 替换为 $color-black 的实际 RGBA 值 */
+            ),
+            url('path/to/img/bg/footer-bg-md.jpg'); /* 替换为实际图片路径 */
+    }
+}
+
+/* Above 640px */
+@media only screen and (min-width: 40em) {
+    .footer {
+        background-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.5), /* 替换为 $color-black 的实际 RGBA 值 */
+                rgba(0, 0, 0, 0.5)  /* 替换为 $color-black 的实际 RGBA 值 */
+            ),
+            url('path/to/img/bg/footer-bg-md.jpg'); /* 替换为实际图片路径 */
+    }
+}
+
+/* Above 1920px */
+@media only screen and (min-width: 120em) {
+    .footer {
+        background-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.5), /* 替换为 $color-black 的实际 RGBA 值 */
+                rgba(0, 0, 0, 0.5)  /* 替换为 $color-black 的实际 RGBA 值 */
+            ),
+            url('path/to/img/bg/footer-bg-lg.jpg'); /* 替换为实际图片路径 */
+    }
+}
+
+.footer__social-heading {
+    text-transform: uppercase;
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+}
+
+.footer__nav {
+    padding: 10px 0; /* 替换为 pxToRem(10) 的实际值 */
+    border-top: 1px solid #555555; /* 替换为 $color-grey-dark-4 的实际值 */
+}
+
+.footer__nav a.nav-link {
+    padding: 10px 16px; /* 替换为 pxToRem(10) 和 pxToRem(16) 的实际值 */
+    border-bottom: 1px solid transparent;
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+    text-transform: uppercase;
+}
+
+/* Hover, focus, and active styles */
+.footer__nav a.nav-link:hover,
+.footer__nav a.nav-link:focus,
+.footer__nav a.nav-link:active {
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+    text-decoration: underline;
+}
+
+.footer__nav a.nav-link.active {
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+}
+
+.footer__credits {
+    border-top: 1px solid #555555; /* 替换为 $color-grey-dark-4 的实际值 */
+}
+
+.footer__credits a {
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+    border-bottom: 1px solid #ffffff; /* 替换为 $color-text-white 的实际值 */
+}
+
+.footer__credits {
+    margin: 0;
+    padding: 14px 0; /* 替换为 pxToRem(14) 的实际值 */
+    color: #ffffff; /* 替换为 $color-text-white 的实际值 */
+}

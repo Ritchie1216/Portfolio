@@ -1,0 +1,66 @@
+.navbar-top {
+    z-index: 1030;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 16px; /* 替换为 pxToRem(16) 的实际值 */
+    text-transform: uppercase;
+    background-color: transparent;
+    transition: background-color 0.3s ease, padding 0.3s ease, transform 0.2s;
+}
+
+.navbar-top .navbar-nav .nav-link {
+    transition: border-bottom 0.15s ease;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+    margin-left: 25px; /* 替换为 pxToRem(25) 的实际值 */
+    font-size: 18px; /* 替换为 pxToRem(18) 的实际值 */
+    padding: 8px 0; /* 替换为 pxToRem(8) 的实际值 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* 替换为 $color-white 的实际值 */
+}
+
+/* Hover, focus, and active styles */
+.navbar-top .navbar-nav .nav-link:hover,
+.navbar-top .navbar-nav .nav-link:focus,
+.navbar-top .navbar-nav .nav-link:active {
+    color: #ffffff; /* 替换为 $color-white 的实际值 */
+    border-bottom: 2px solid #007bff; /* 替换为 $color-primary 的实际值 */
+}
+
+.navbar-top .navbar-nav .active > .nav-link {
+    border-bottom: 2px solid #007bff; /* 替换为 $color-primary 的实际值 */
+}
+
+.navbar-top .navbar-brand {
+    font-size: 23px; /* 替换为 pxToRem(23) 的实际值 */
+}
+
+.navbar-top .navbar-toggler {
+    border: none;
+}
+
+.navbar-top .navbar-toggler:hover,
+.navbar-top .navbar-toggler:focus,
+.navbar-top .navbar-toggler:active {
+    text-decoration: none;
+    outline: none;
+}
+
+.navbar-top--scrolled {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7); /* 替换为 rgba($color-black, 0.7) 的实际值 */
+    padding: 9px 16px; /* 替换为 pxToRem(9) 和 pxToRem(16) 的实际值 */
+}
+
+.nav .nav-link.active {
+    color: #000000; /* 替换为 $color-text-black 的实际值 */
+}
+
+.nav .nav-item > .dropdown-menu .dropdown-item {
+    color: #000000; /* 替换为 $color-text-black 的实际值 */
+}

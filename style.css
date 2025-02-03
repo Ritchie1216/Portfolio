@@ -1,0 +1,76 @@
+
+/* Programming Skills Section */
+.pg-skill {
+padding: 40px 20px;
+background-color: #f7f7f7;
+}
+
+.detail-title {
+display: flex;
+align-items: center;
+margin-bottom: 20px;
+font-size: 24px;
+font-weight: bold;
+color: #333;
+}
+
+.title-icon {
+font-size: 30px;
+color: #007bff;
+margin-right: 10px;
+}
+
+.pg-list {
+list-style-type: none;
+padding: 0;
+}
+
+.pg-list li {
+margin-bottom: 20px;
+}
+
+.pg-list span {
+display: inline-block;
+width: 100px;
+font-size: 18px;
+font-weight: 600;
+color: #333;
+}
+
+/* Skeleton for the skillbar */
+.sb-skeleton {
+background-color: #e0e0e0;
+border-radius: 10px;
+overflow: hidden;
+height: 15px;
+width: 100%;
+position: relative;
+}
+
+/* Actual skillbar animation */
+.skillbar {
+background-color: #007bff;
+height: 100%;
+width: 0;
+border-radius: 10px;
+animation: loadSkill 2s forwards;
+}
+
+@keyframes loadSkill {
+0% {
+width: 0;
+}
+100% {
+width: var(--pgbar-length);
+}
+}
+
+/* Custom colors for each skill (optional) */
+.pg-list li:nth-child(1) .skillbar { background-color: #e34c26; } /* HTML5 */
+.pg-list li:nth-child(2) .skillbar { background-color: #777bb4; } /* PHP */
+.pg-list li:nth-child(3) .skillbar { background-color: #264de4; } /* CSS3 */
+.pg-list li:nth-child(4) .skillbar { background-color: #f7df1e; } /* JavaScript */
+.pg-list li:nth-child(5) .skillbar { background-color: #ff2d20; } /* Laravel */
+.pg-list li:nth-child(6) .skillbar { background-color: #00758f; } /* MySQL */
+.pg-list li:nth-child(7) .skillbar { background-color: #563d7c; } /* Bootstrap */
+

@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="description"
+            content="0xFolio is a free HTML template designed by Ali Raza. It is highly responsive and contains clean code. It uses sass and bootstrap.">
+        <meta name="keywords" content="0xFolio, Free HTML Template, Bootstrap Template, Free, CSS Template">
+        <meta name="author" content="Ali Raza">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="./css/main.comp.css">
+        <link rel="stylesheet" href="./css/main.comp.css.map">
+        <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="./img/favicon/site.webmanifest">
+        <link rel="stylesheet" href="./css/main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title>Resume</title>
+
+        <style>
+            /* Project Cards Styling */
+            .project-box {
+                height: 500px; /* 统一固定高度 */
+                margin-bottom: 30px;
+            }
+
+            .project {
+                height: 100%;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .project__img-box {
+                width: 100%;
+                height: 200px; /* 减小图片高度 */
+                overflow: hidden;
+            }
+
+            .project__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .project__content-box {
+                padding: 1.5rem;
+                height: 300px; /* 固定内容区域高度 */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .heading-tertiary {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: #333;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                height: 45px; /* 固定标题高度 */
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .project__details {
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+                height: 65px; /* 固定描述文字高度 */
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .project__cta-box {
+                margin-top: auto;
+                padding-top: 1rem;
+                height: 60px; /* 固定按钮区域高度 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                font-weight: 500;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+            }
+
+            .btn--ghost {
+                background-color: transparent;
+                border: 2px solid #6a11cb;
+                color: #6a11cb;
+            }
+
+            .btn--ghost:hover {
+                background-color: #6a11cb;
+                color: white;
+            }
+
+            .btn--full {
+                background: linear-gradient(135deg, #2575fc, #6a11cb);
+                color: white;
+                border: none;
+            }
+
+            .btn--full:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            }
+
+            .icon {
+                width: 1.2rem;
+                height: 1.2rem;
+                fill: currentColor;
+            }
+
+            /* 响应式调整 */
+            @media (max-width: 768px) {
+                .project-box {
+                    height: 450px;
+                }
+
+                .project__img-box {
+                    height: 180px;
+                }
+
+                .project__content-box {
+                    height: 270px;
+                    padding: 1rem;
+                }
+            }
+        </style>
+    </head>
+<style>
+    .header {
+    width: 100%;
+    height: 100vh; /* 根据需要设置高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 添加背景图像 */
+    background-image: url('./img/bg/header-bg-lg.jpg'); /* 替换为你的背景图片路径 */
+    background-size: cover; /* 使背景图像覆盖整个元素 */
+    background-position: center; /* 将背景图像居中显示 */
+    background-attachment: fixed; /* 固定背景图像位置 */
+}
+
+.counter {
+    background-image: url('./img/bg/counter-bg-lg.jpg'); /* Replace with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0; /* Adjust the padding as needed */
+}
+
+.header__img-box {
+    width: 200px;  /* 控制图片容器的宽度 */
+    height: 200px;  /* 控制图片容器的高度 */
+    border-radius: 50%;  /* 使容器成为圆形 */
+    overflow: hidden;  /* 确保图片不会超出容器 */
+    margin: 0 auto 2rem;  /* 上下间距2rem，左右自动居中 */
+    border: 3px solid #fff;  /* 添加白色边框 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);  /* 添加阴影效果 */
+}
+
+.header__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    transition: transform 0.3s ease;
+}
+
+/* 可选：添加悬停效果 */
+.header__img-box:hover .header__img {
+    transform: scale(1.1);  /* 悬停时图片轻微放大 */
+}
+
+</style>
+
+<style>
+     .alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+            background-color: #28a745;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            display: none; /* 默认隐藏，只有在需要时才显示 */
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .alert.error {
+            background-color: #dc3545; /* 错误消息 */
+        }
+
+        .alert.success {
+            background-color: #28a745; /* 成功消息 */
+        }
+
+        .alert.info {
+            background-color: #007bff; /* 信息消息 */
+        }
+
+        /* 关闭按钮样式 */
+        .alert .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: inherit;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .alert .close-btn:hover {
+            color: #fff;
+        }
+
+        .counter__icon-box {
+        width: 80px;  /* 增加图标容器大小 */
+        height: 80px;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .counter__icon {
+        width: 400px;  /* 增加图标大小 */
+        height: 400px;
+         /* 保持原来的颜色 */
+    }
+
+    .counter__box {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+    .header__social-icons .social-icons__icon {
+        fill: white;  /* 将图标颜色改为白色 */
+        width: 25px;  /* 可以调整大小 */
+        height: 25px;
+        transition: opacity 0.3s ease;  /* 添加悬停效果的过渡 */
+    }
+
+    .header__social-icons .social-icons__link:hover .social-icons__icon {
+        opacity: 0.8;  /* 悬停时轻微透明 */
+    }
+</style>
+    <body>
+          <!-- 页面内容 -->
+    <div id="message-container"></div> <!-- 消息会显示在这里 -->
+
+    <script>
+        // 模拟显示一个自定义消息弹窗
+        function showAlert(message, type = 'info') {
+            const alertBox = document.createElement('div');
+            alertBox.classList.add('alert', type);  // 设置消息类型 (success/error/info)
+            alertBox.innerHTML = `
+                <span>${message}</span>
+                <button class="close-btn" onclick="this.parentElement.style.display='none'">×</button>
+            `;
+            
+            // 将 alert 添加到页面中
+            document.body.appendChild(alertBox);
+
+            // 显示 alert
+            setTimeout(() => {
+                alertBox.style.display = 'block';
+            }, 100);
+
+            // 自动关闭弹窗，5秒后消失
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+
+        // 调用示例：显示成功消息
+        // showAlert("Message sent successfully!", "success");
+
+        // 示例：从 URL 获取 message 参数并调用 showAlert 函数
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message) {
+            // 判断是否为成功消息，错误消息等
+            if (message.includes("success")) {
+                showAlert(message, "success");
+            } else if (message.includes("could not")) {
+                showAlert(message, "error");
+            } else {
+                showAlert(message, "info");
+            }
+        }
+    </script>
+        <!-- 引入 Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <header class="header" id="header">
+            <!-- Top fixed navbar -->
+            <nav class="navbar navbar-top navbar-expand-md navbar-dark header__navbar">
+                <div class="container-lg">
+                    <a class="navbar-brand" href="#">Chah Li Ze</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarTopCollapsible" aria-controls="navbarTopCollapsible" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTopCollapsible">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#header">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#work">My_Project</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./documents/CV - Li Ze Chah (8).pdf" target="_blank">Resume</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <!-- Centered content -->
+            <div class="header__content">
+                <div class="header__img-box">
+                    <img src="./img/DSC_9628.jpg" alt="Chah Li Ze" class="header__img">
+                </div>
+                <h1 class="heading-primary">
+                    <span class="heading-primary--main">Chah Li Ze</span>
+                    <span class="heading-primary--sub">Full Stack Developer</span>
+                </h1>
+                <div class="header__cta-box">
+                    <a href="#about" class="btn btn--full">About</a>
+                    <a href="#work" class="btn btn--ghost">My_project</a>
+                </div>
+            </div>
+
+
+            <!-- Absolute positioned social icons -->
+            <div class="header__social-icons social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100009101916918" class="social-icons__link">
+                    <svg class="icon social-icons__icon">
+                        <use xlink:href="./img/SVG/symbol-defs.svg#icon-facebook"></use>
+                    </svg>
+                </a>
+                
+                <a href="https://www.instagram.com/ritchie121600/" class="social-icons__link">
+                    <svg class="icon social-icons__icon">
+                        <use xlink:href="./img/SVG/symbol-defs.svg#icon-instagram"></use>
+                    </svg>
+                </a>
+                <a href="#" class="social-icons__link">
+                    <svg class="icon social-icons__icon">
+                        <use xlink:href="./img/SVG/symbol-defs.svg#icon-whatsapp"></use>
+                    </svg>
+                </a>
+                <a href="#" class="social-icons__link">
+                    <svg class="icon social-icons__icon">
+                        <use xlink:href="./img/SVG/symbol-defs.svg#icon-discord"></use>
+                    </svg>
+                </a>
+               
+            </div>
+
+        </header>
+
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="heading-secondary">About me</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8">
+                        <div class="about__content">
+                           <p>I am currently looking for Web Developer internship. I will provide you the information regarding my qualification & Professional Experiences. I excited about the opportunity to make a positive impact and help drive the company's growth.</p>
+                        </div>
+                        <div class="about__skills my-4">
+                            <h3 class="heading-tertiary">Technologies I know:</h3>
+                            <div class="about__skills-icons mt-2">
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-html5"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-css3"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-javascript"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-php"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-laravel"></use>
+                                </svg>
+                                
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-jquery"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-mysql"></use>
+                                </svg>
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-bootstrap"></use>
+                                </svg>
+                               
+                                <svg class="icon about__skills-icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-git"></use>
+                                </svg>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <section class="detail-section pg-skill">
+                    <div class="detail-title">
+                        <div class="title-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span>Programming Skills</span> 
+                    </div>
+                    <div class="detail-content">
+                        <ul class="pg-list">
+                            <li>
+                                <span>HTML5</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 80%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>PHP</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 75%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>CSS</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 50%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>JavaScript</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 40%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Laravel</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 70%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>MySQL</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 80%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>BootStrap</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 75%"></div>
+                                </div>
+                            </li>
+                            <li>
+                                <span>GitHub</span>
+                                <div class="sb-skeleton">
+                                    <div class="skillbar" style="--pgbar-length: 65%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+
+
+                <div class="about__cta-box text-center">
+                    <a href="./documents/CV - Li Ze Chah (8).pdf" target="_blank" class="btn btn--ghost">
+                        <svg class="icon btn__icon-left">
+                            <use xlink:href="./img/SVG/symbol-defs.svg#icon-file-pdf"></use>
+                        </svg>
+                        Resume
+                    </a>
+                    <a href="#contact" class="btn btn--full">Contact</a>
+                </div>
+            </div>
+        </section>
+        <section class="work" id="work">
+            <div class="container">
+                <h2 class="heading-secondary">Things I've made</h2>
+        
+                <ul class="nav nav-tabs justify-content-center mt-5 mb-4" id="workTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="all-tab" href="#" role="tab" aria-selected="true" onclick="filterProjects('all', event)">All</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Technology</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" onclick="filterProjects('laravel', event)">Laravel</a>
+                            <a class="dropdown-item" href="#" onclick="filterProjects('php', event)">PHP</a>
+                        </div>
+                    </li>
+                </ul>
+        
+                <div class="tab-content">
+                    <div class="work__content work__content--projects tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+                        <div class="row justify-content-center">
+                            <!-- Project 1 (Laravel) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 php">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/project1.png" alt="Project 1" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">SALON MGMT SYSTEM</h3>
+                                        <p class="project__details">A comprehensive solution for managing a salon, including features for appointment booking, client management, staff scheduling, and inventory tracking.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://localhost/mini_project/Salon-Management-System-Project-PHP/msms/index.php" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            
+                                            <a href="https://github.com/Ritchie1216/Salon_System" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Project 2 (Visitor System) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 php">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/visitor_qr.png" alt="Project 2" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">VISITOR SYSTEM</h3>
+                                        <p class="project__details">A system designed to manage and track visitors, including features for visitor registration, QR code scanning, appointment scheduling, and visitor status tracking.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://localhost/mini_project/visitor_system_qw/admin/index.php" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            <a href="https://github.com/Ritchie1216/visitor_system" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Project 3 (Blog) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 laravel">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/Blog_new.png" alt="Project 3" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">BLOG</h3>
+                                        <p class="project__details">A platform designed for creating, managing, and sharing blog posts.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://127.0.0.1:8000/posts#" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            <a href="https://github.com/Ritchie1216/Blog" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Project 4 (Spelling Game) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 laravel spelling-game">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/spelling.png" alt="Project 4" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">SPELLING GAME</h3>
+                                        <p class="project__details">An interactive game designed to help users improve their spelling skills.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://127.0.0.1:8000/" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            <a href="https://github.com/Ritchie1216/Spelling_Game" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Project 5 (ROCK PAPER SCISSORS GAME) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 laravel">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/rock_paper_scissors.png" alt="Project 5" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">ROCK PAPER SCISSORS GAME</h3>
+                                        <p class="project__details">Rock, Paper, Scissors is a classic interactive game where players compete by choosing Rock, Paper, or Scissors. The game is based on simple rules: Rock crushes Scissors, Scissors cut Paper, and Paper wraps Rock. It serves as an excellent practice project for programming beginners and can be enhanced with features like a scoring system, multi-round mode, or graphical interface to increase both fun and technical depth. This project is compatible with various tech stacks, including Python, JavaScript, or GUI frameworks, making it a simple yet challenging entry-level project.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://127.0.0.1:8000/" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            <a href="https://github.com/Ritchie1216/Rock_PAPER_SCISSORS" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Project 6 (New Year Gift Basket Management) -->
+                            <div class="project-box col-sm-12 col-md-6 col-lg-4 mb-5 php">
+                                <div class="project">
+                                    <div class="project__img-box">
+                                        <img src="./img/project-7.png" alt="Project 6" class="project__img img-fluid">
+                                    </div>
+                                    <div class="project__content-box">
+                                        <h3 class="heading-tertiary">NEW YEAR GIFT BASKET MANAGEMENT SYSTEM</h3>
+                                        <p class="project__details">A system designed to manage New Year gift baskets, including inventory tracking and order management.</p>
+                                        <div class="project__cta-box text-center">
+                                            <a href="http://localhost/Eys/index.php" class="btn btn--ghost" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-earth"></use>
+                                                </svg>
+                                                Demo
+                                            </a>
+                                            <a href="https://github.com/Ritchie1216/GIFT-BASKET-MANAGEMENT-SYSTEM" class="btn btn--full" target="_blank">
+                                                <svg class="icon btn__icon-left icon-earth">
+                                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                                </svg>
+                                                Source
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-2 mt-n1 text-center">
+                <a href="#" class="btn btn--full" onclick="filterProjects('all', event)">Show all</a>
+            </div>
+        </section>
+        
+        <script>
+            function filterProjects(category, event) {
+                // Prevent default behavior
+                event.preventDefault();
+        
+                // Get all projects
+                const allProjects = document.querySelectorAll('.project-box');
+        
+                // Remove 'active' class from all tabs
+                document.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+        
+                // Add 'active' class to clicked tab
+                event.target.classList.add('active');
+        
+                if (category === 'all') {
+                    // Show all projects
+                    allProjects.forEach(project => project.style.display = 'block');
+                } else {
+                    // Show only the selected category projects
+                    allProjects.forEach(project => {
+                        if (project.classList.contains(category)) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        </script>
+                 
+        </section>
+            
+               
+        </section>
+
+        <section class="counter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="counter__box">
+                            <div class="counter__icon-box">
+                                <svg class="icon counter__icon">
+                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-embed"></use>
+                                </svg>
+                            </div>
+                            <span class="counter__count">1388</span>
+                            <p class="counter__title">Lines of code</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="counter__box">
+                            <div class="counter__icon-box">
+                                <svg class="icon counter__icon">
+                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-github"></use>
+                                </svg>
+                            </div>
+                            <span class="counter__count">6</span>
+                            <p class="counter__title">Projects done</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="counter__box">
+                            <div class="counter__icon-box">
+                                <svg class="icon counter__icon">
+                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-edit"></use>
+                                </svg>
+                            </div>
+                            <span class="counter__count">6</span>
+                            <p class="counter__title">Certificates Earned</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3">
+                        <div class="counter__box">
+                            <div class="counter__icon-box">
+                                <svg class="icon counter__icon">
+                                    <use xlink:href="img/SVG/symbol-defs.svg#icon-sun"></use>
+                                </svg>
+                            </div>
+                            <span class="counter__count">2</span>
+                            <p class="counter__title">Years lived</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact py-5" id="contact">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                  <div class="form-container p-5 shadow rounded">
+                    <h2 class="heading-secondary text-center mb-4">Contact Me</h2>
+                    <p class="text-center text-muted mb-4">
+                      I'd love to hear from you! Fill out the form below and I'll get back to you as soon as possible.
+                    </p>
+                    <form action="send_email.php" method="POST" id="contactForm">
+                      <div class="form-group mb-3">
+                        <label for="Username" class="form-label">Username</label>
+                        <input
+                          required
+                          type="text"
+                          class="form-control"
+                          id="Username"
+                          name="username"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input
+                          required
+                          type="email"
+                          class="form-control"
+                          id="Email"
+                          name="email"
+                          placeholder="Enter your email address"
+                        />
+                      </div>
+                      <div class="form-group mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input
+                          required
+                          type="text"
+                          class="form-control"
+                          id="subject"
+                          name="subject"
+                          placeholder="Enter the subject"
+                        />
+                      </div>
+                      <div class="form-group mb-4">
+                        <label for="message" class="form-label">Your Message</label>
+                        <textarea
+                          required
+                          class="form-control"
+                          id="message"
+                          name="message"
+                          rows="5"
+                          placeholder="Write your message here..."
+                        ></textarea>
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-primary btn-lg w-100 d-flex align-items-center justify-content-center gap-2"
+                        id="submitButton"
+                      >
+                        Send
+                        <svg class="icon btn__icon-right">
+                          <use xlink:href="./img/SVG/symbol-defs.svg#icon-paper-plane"></use>
+                        </svg>
+                      </button>
+                    </form>
+          
+                    <!-- Loader Section -->
+                    <div class="loader mt-4" id="loader" style="display: none;">
+                      <div class="slider"></div>
+                      <div class="slider"></div>
+                      <div class="slider"></div>
+                      <div class="slider"></div>
+                      <div class="slider"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <style>
+            .contact {
+              padding-top: 50px;
+              padding-bottom: 50px;
+            }
+          
+            .contact .form-container {
+              background-color: #ffffff;
+              border-radius: 8px;
+              box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            }
+          
+            .contact .form-label {
+              font-weight: bold;
+              font-size: 1rem;
+              color: #333;
+            }
+          
+            .contact .form-control {
+              border: 1px solid #ddd;
+              border-radius: 5px;
+              padding: 0.75rem;
+              font-size: 1rem;
+              transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+          
+            .contact .form-control:focus {
+              border-color: #6a11cb;
+              box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+            }
+          
+            .contact button {
+              background: linear-gradient(135deg, #2575fc, #6a11cb);
+              color: white;
+              border: none;
+              padding: 0.75rem 1.5rem;
+              border-radius: 50px;
+              font-size: 1.1rem;
+              font-weight: bold;
+              transition: all 0.3s ease;
+            }
+          
+            .contact button:hover {
+              background: linear-gradient(135deg, #6a11cb, #2575fc);
+              transform: scale(1.02);
+            }
+          
+            .contact p {
+              color: #666;
+            }
+          
+            .contact h2 {
+              color: #333;
+              font-weight: 700;
+            }
+          
+            .contact .form-container:hover {
+              transform: scale(1.01);
+              transition: 0.3s ease-in-out;
+            }
+          
+            /* Loader animation */
+            .loader {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: row;
+            }
+          
+            .slider {
+              overflow: hidden;
+              background-color: white;
+              margin: 0 15px;
+              height: 80px;
+              width: 20px;
+              border-radius: 30px;
+              box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 30px #fff,
+                inset -5px -5px 10px rgba(0, 0, 255, 0.1),
+                inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+              position: relative;
+            }
+          
+            .slider::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 20px;
+              width: 20px;
+              border-radius: 100%;
+              box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2697f3,
+                inset 0px 0px 0px rgba(0, 0, 0, 0.1);
+              animation: animate_2 2.5s ease-in-out infinite;
+            }
+          
+            @keyframes animate_2 {
+              0% {
+                transform: translateY(250px);
+                filter: hue-rotate(0deg);
+              }
+          
+              50% {
+                transform: translateY(0);
+              }
+          
+              100% {
+                transform: translateY(250px);
+                filter: hue-rotate(180deg);
+              }
+            }
+          </style>
+          
+          <script>
+            document.getElementById("contactForm").addEventListener("submit", function (event) {
+              const loader = document.getElementById("loader");
+              const submitButton = document.querySelector("button[type=submit]");
+          
+              // 显示加载动画并禁用按钮
+              loader.style.display = "flex";
+              submitButton.disabled = true;
+            });
+          </script>
+          
+<section class="blog-section" id="certificate">
+    <div class="container">
+        <h2 class="heading-secondary">Certificate</h2>
+        
+        <!-- Carousel Section -->
+        <div class="carousel">
+            <div class="carousel__track-container">
+                <ul class="carousel__track">
+                    <li class="carousel__slide">
+                        <img src="img/certificate1.png" alt="Photo 1" class="carousel__image" onclick="openModal('img/certificate1.png')">
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="img/certificate2.png" alt="Photo 2" class="carousel__image" onclick="openModal('img/certificate2.png')">
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="img/certificate3.png" alt="Photo 3" class="carousel__image" onclick="openModal('img/certificate3.png')">
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="img/certificate4.png" alt="Photo 4" class="carousel__image" onclick="openModal('img/certificate4.png')">
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="img/certificate7.png" alt="Photo 5" class="carousel__image" onclick="openModal('img/certificate5.png')">
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="img/certificate6.png" alt="Photo 6" class="carousel__image" onclick="openModal('img/certificate6.png')">
+                    </li>
+                </ul>
+            </div>
+            <button class="carousel__button carousel__button--left">◀</button>
+            <button class="carousel__button carousel__button--right">▶</button>
+        </div>
+
+        <!-- Modal for viewing enlarged images -->
+        <div id="modal" class="modal">
+            <span class="modal__close" onclick="closeModal()">×</span>
+            <img class="modal__content" id="modal-img" />
+        </div>
+        
+        <!-- Map Section -->
+        <div class="map-section mt-5">
+            <h2 class="heading-secondary">My Location</h2>
+            <p class="location-address">191, Taman Sri Ampang, 05050 Alor Setar, Kedah</p>
+            <!-- Google Map Embed with specific location -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14756.122586759867!2d100.36056379306789!3d6.115416898315362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31b1854e4b557d6d%3A0x75b9b0db6f58db76!2s191%2C%20Taman%20Sri%20Ampang%2C%2005050%20Alor%20Setar%2C%20Kedah%2C%20Malaysia!5e0!3m2!1sen!2sus!4v1671013956451!5m2!1sen!2sus"
+                width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
+    
+</section>
+
+              <style>
+                /* Map Section Styling */
+.map-section {
+    background-color: #f8f8f8;
+    padding: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    text-align: center;
+}
+
+.map-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.location-address {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+.map-section iframe {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.map-section iframe:hover {
+    transform: scale(1.05);
+}
+
+/* Carousel Section Styling */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.carousel__track-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel__slide {
+    min-width: 100%;
+}
+
+.carousel__image {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.carousel__image:hover {
+    opacity: 0.8;
+}
+
+.carousel__button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 50%;
+}
+
+.carousel__button--left {
+    left: 10px;
+}
+
+.carousel__button--right {
+    right: 10px;
+}
+
+.carousel__button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.modal__content {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+                .carousel {
+                  position: relative;
+                  max-width: 1000px;
+                  margin: auto;
+                  overflow: hidden;
+                  border-radius: 15px;
+                  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                }
+            
+                .carousel__track-container {
+                  position: relative;
+                  width: 100%;
+                  overflow: hidden;
+                  border-radius: 15px;
+                }
+            
+                .carousel__track {
+                  display: flex;
+                  transition: transform 0.5s ease-in-out;
+                }
+            
+                .carousel__slide {
+                  min-width: 25%; /* Each image takes up 25% of the container width */
+                  list-style: none;
+                }
+            
+                .carousel__image {
+                  width: 100%;
+                  height: auto;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                  cursor: pointer;
+                }
+            
+                .carousel__button {
+                  position: absolute;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+                  color: #fff;
+                  border: none;
+                  cursor: pointer;
+                  padding: 12px;
+                  border-radius: 50%;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                  transition: background 0.3s ease, box-shadow 0.3s ease;
+                }
+            
+                .carousel__button:hover {
+                  background: rgba(0, 0, 0, 0.8);
+                  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                }
+            
+                .carousel__button--left {
+                  left: 15px;
+                }
+            
+                .carousel__button--right {
+                  right: 15px;
+                }
+            
+                /* Modal styles */
+                .modal {
+                  display: none;
+                  position: fixed;
+                  z-index: 1;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  overflow: auto;
+                  background-color: rgba(0, 0, 0, 0.8);
+                  justify-content: center;
+                  align-items: center;
+                }
+            
+                .modal__content {
+                  max-width: 80%;
+                  max-height: 80%;
+                  margin: auto;
+                  display: block;
+                  object-fit: contain;
+                }
+            
+                .modal__close {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  font-size: 30px;
+                  font-weight: bold;
+                  color: white;
+                  cursor: pointer;
+                }
+            
+                .modal__close:hover {
+                  color: red;
+                }
+
+                .social-icons--lg .social-icons__icon {
+        fill: white;  /* 将图标颜色改为白色 */
+        width: 25px;  /* 设置大小 */
+        height: 25px;
+        transition: opacity 0.3s ease;
+    }
+
+    .social-icons--lg .social-icons__link:hover .social-icons__icon {
+        opacity: 0.8;  /* 悬停效果 */
+    }
+
+    /* 确保底部导航链接也是白色 */
+    .footer__nav .nav-link {
+        color: white;
+    }
+
+    .footer__social-heading {
+        color: white;
+    }
+              </style>
+              
+              <script>
+                const prevButton = document.querySelector('.carousel__button--left');
+                const nextButton = document.querySelector('.carousel__button--right');
+                const track = document.querySelector('.carousel__track');
+                const slides = document.querySelectorAll('.carousel__slide');
+                const totalSlides = slides.length;
+                let currentIndex = 0;
+            
+                function moveToSlide(index) {
+                  track.style.transform = `translateX(-${index * 25}%)`; // Move the track by 25% for each image
+                }
+            
+                prevButton.addEventListener('click', () => {
+                  currentIndex = (currentIndex === 0) ? totalSlides - 4 : currentIndex - 1; // Loop to the last group
+                  moveToSlide(currentIndex);
+                });
+            
+                nextButton.addEventListener('click', () => {
+                  currentIndex = (currentIndex === totalSlides - 4) ? 0 : currentIndex + 1; // Loop back to the first group
+                  moveToSlide(currentIndex);
+                });
+            
+                setInterval(() => {
+                  currentIndex = (currentIndex === totalSlides - 4) ? 0 : currentIndex + 1; // Auto-loop every 5 seconds
+                  moveToSlide(currentIndex);
+                }, 5000);
+            
+                // Open modal with the clicked image
+                function openModal(imageSrc) {
+                  const modal = document.getElementById('modal');
+                  const modalImg = document.getElementById('modal-img');
+                  modal.style.display = "flex";
+                  modalImg.src = imageSrc;
+            
+                  // Add event listener for double-click to close the modal
+                  modalImg.addEventListener('dblclick', closeModal);
+                }
+            
+                // Close the modal
+                function closeModal() {
+                  const modal = document.getElementById('modal');
+                  const modalImg = document.getElementById('modal-img');
+                  modal.style.display = "none";
+            
+                  // Remove the event listener when closing the modal
+                  modalImg.removeEventListener('dblclick', closeModal);
+                }
+              </script>
+            
+              
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12  py-5 text-center mb-2">
+                        <h3 class="mb-4 heading-tertiary footer__social-heading">Stay connected</h3>
+                        <!-- Absolute positioned social icons -->
+                        <div class=" social-icons social-icons--lg">
+                            <a href="https://www.facebook.com/profile.php?id=100009101916918" class="social-icons__link">
+                                <svg class="icon social-icons__icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-facebook"></use>
+                                </svg>
+                            </a>
+                          
+                            <a href="https://www.instagram.com/ritchie121600/" class="social-icons__link">
+                                <svg class="icon social-icons__icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-instagram"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icons__link">
+                                <svg class="icon social-icons__icon">
+                                    <use xlink:href="./img/SVG/symbol-defs.svg#icon-whatsapp"></use>
+                                </svg>
+                            </a>
+                           
+                        </div>
+                    </div>
+                  
+                    <div class="col-12 mt-auto">
+                        <nav class="nav footer__nav justify-content-around">
+                            <a class="nav-link active" href="#">Home</a>
+                            <a class="nav-link" href="#work">Projects</a>
+                            <a class="nav-link" href="#certificate">Certificate</a>
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+        <script src="./js/vendors/jquery/jquery.min.js"></script>
+        <script src="./js/vendors/waypoints/jquery.waypoints.min.js"></script>
+        <script src="./js/vendors/popper/popper.min.js"></script>
+        <script src="./js/vendors/bootstrap/bootstrap.min.js"></script>
+        <script src="./js/script.js"></script>
+    </body>
+
+</html>
